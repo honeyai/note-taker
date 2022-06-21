@@ -2,7 +2,6 @@ let express = require('express');
 let app = express();
 //let router = express.Router();
 let path = require('path');
-let port = 3000;
 let fs = require('fs');
 const routes = require('./Routes/routes.js');
 
@@ -22,6 +21,6 @@ app.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname+'/public/notes.html'));
 })
 
-app.listen(port, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log('listening');
 })
